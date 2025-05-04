@@ -1,0 +1,14 @@
+    sudo dmesg | grep kvm
+👉 Checks if your system supports virtualization (KVM).
+    sudo apt update
+👉 Updates the list of available software packages.
+    sudo apt install -y qemu-kvm libvirt-daemon-system virt-manager
+👉Installs virtualization tools (KVM and Virtual Machine Manager).
+    sudo adduser $USER libvirt
+👉 Gives your user permission to use virtualization features.
+    sudo systemctl enable --now libvirtd
+👉 Starts the virtualization service and enables it at boot.
+    reboot  # or logout and login again
+👉 Refreshes user permissions by restarting or re-logging.
+    virt-manager
+👉 Opens the Virtual Machine Manager app to create and manage VMs.

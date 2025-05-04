@@ -1,0 +1,39 @@
+# Steps for using Apex to create new accounts in Salesforce (for Developers)
+
+This file contains instructions for Assignment-3.
+
+---
+
+## Code
+
+In the Developer Console, after creating a new `Apex Class` with the name `user`, paste the below code:
+
+```
+public class user {
+    public static void createAccount(String accountName) {
+        // Create a new Account instance
+        Account newAccount = new Account();
+        newAccount.Name = accountName;
+
+        // Insert the Account into the database
+        try {
+            insert newAccount;
+            System.debug('Account created with Id: ' + newAccount.Id);
+        } catch (DmlException e) {
+            System.debug('Error creating account: ' + e.getMessage());
+        }
+    }
+}
+```
+
+## Execution
+
+- In the Developer Console itself, after pasting the above code, press `Ctrl+S` to save the changes, then
+- Press `Ctrl+E` to open execute anonymous window,
+- Paste the below content and hit `Execute`.
+
+```apex
+user.createAccount('Test-1');
+user.createAccount('Test-2');
+```
+
